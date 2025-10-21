@@ -29,5 +29,10 @@ def clipboard():
         print("⚠️ No text received.")
         return "No text", 400
 
+@app.route("/get_clipboard", methods=["GET"])
+def get_clipboard():
+    text = pyperclip.paste()
+    return text, 200
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)
